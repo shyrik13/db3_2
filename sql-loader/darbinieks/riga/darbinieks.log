@@ -1,0 +1,69 @@
+
+SQL*Loader: Release 19.0.0.0.0 - Production on Thu Dec 3 22:29:18 2020
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   darbinieks.ctl
+Data File:      darbinieks_riga.dat
+  Bad File:     darbinieks_riga.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     250 rows, maximum of 1048576 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table LIDOSTA_DARBINIEKS, loaded from every logical record.
+Insert option in effect for this table: INSERT
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+LIDOSTA_DARBINIEKS_ID               FIRST     *   ,       CHARACTER            
+VARDS                                NEXT     *   ,       CHARACTER            
+UZVARDS                              NEXT     *   ,       CHARACTER            
+STATUS                               NEXT     *   ,       CHARACTER            
+DARBA_POZICIJA                       NEXT     *   ,       CHARACTER            
+LIDOSTA_ID                           NEXT     *   ,       CHARACTER            
+GRAFIKI_FILE                         NEXT     *   ,       CHARACTER            
+  (FILLER FIELD)
+GRAFIKI                           DERIVED     *           NESTED TABLE         
+    Dynamic Secondary Data File.  Filename in field GRAFIKI_FILE
+
+*** Fields in GRAFIKI
+LIDOSTA_DARBINIEKS_GRAFIKS        DERIVED     *           COLUMN OBJECT        
+
+*** Fields in GRAFIKI.LIDOSTA_DARBINIEKS_GRAFIKS
+STRADA_NO                            1:20    20           DATETIME yyyy-mm-dd HH24:MI:SS
+STRADA_LIDZ                         21:40    20           DATETIME yyyy-mm-dd HH24:MI:SS
+NEDELAS_DIENA                       41:51    11           CHARACTER            
+*** End of fields in GRAFIKI.LIDOSTA_DARBINIEKS_GRAFIKS
+
+*** End of fields in GRAFIKI
+
+
+
+Table LIDOSTA_DARBINIEKS:
+  10 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 468000 bytes(250 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:            10
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Thu Dec 03 22:29:18 2020
+Run ended on Thu Dec 03 22:29:19 2020
+
+Elapsed time was:     00:00:00.19
+CPU time was:         00:00:00.06

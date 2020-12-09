@@ -1,0 +1,19 @@
+
+create or replace view LIDOSTA_DARBINIEKS_GRAFIKS_SKATS of LIDOSTA_DARBINIEKS_GRAFIKS_SKATS_TYPE
+    with object identifier(strada_no, strada_lidz) as
+select LD.LIDOSTA_DARBINIEKS_ID, LD.VARDS, LD.UZVARDS,
+       LD.STATUS, LD.DARBA_POZICIJA, LD.LIDOSTA_ID,
+       LDG.STRADA_NO, LDG.STRADA_LIDZ, LDG.NEDELAS_DIENA
+from LIDOSTA_DARBINIEKS LD, TABLE(LD.GRAFIKI) LDG;
+
+create or replace view LIDOSTA_GRAFIKS_SKATS of LIDOSTA_GRAFIKS_SKATS_TYPE
+    with object identifier(datums_no, datums_lidz) as
+select L.LIDOSTA_ID, NOSAUKUMS,
+       LG.DATUMS_NO, LG.DATUMS_LIDZ, LG.NEDELAS_DIENA
+from LIDOSTA L, TABLE(L.GRAFIKI) LG;
+
+create or replace view LIDOJUMS_SKATS of LIDOJUMS_SKATS_TYPE
+    with object identifier(datums_no, datums_lidz) as
+select L.LIDMASINA_ID, NOSAUKUMS, STATUS,
+       LI.DATUMS_NO, LI.DATUMS_LIDZ, LI.LIDOSTA_NO, LI.LIDOSTA_UZ
+from LIDMASINA L, TABLE(L.LIDOJUMI) LI;
